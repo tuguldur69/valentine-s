@@ -1,4 +1,4 @@
-<!-- index -->
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,14 +57,11 @@
      <button id="yesButton">Yes</button>
     <button id="noButton">No</button>
    <script>
- // Initialize values from localStorage or set defaults if not present
-let totalNoClicks = localStorage.getItem("noClicks") ? parseInt(localStorage.getItem("noClicks")) : 0;
-let noClickStage = localStorage.getItem("noStage") ? parseInt(localStorage.getItem("noStage")) : 0;
+  // Load saved clicks from localStorage, or start from 0
+  let totalNoClicks = parseInt(localStorage.getItem("noClicks")) || 0;
+  let noClickStage = parseInt(localStorage.getItem("noStage")) || 0;
 
-console.log('Total No Clicks: ' + totalNoClicks); // Debugging line
-console.log('Current Stage: ' + noClickStage); // Debugging line
-
-document.getElementById('noButton').addEventListener('click', function () {
+  document.getElementById('noButton').addEventListener('click', function () {
     this.style.position = 'absolute';
     this.style.top = Math.random() * 100 + 'vh';
     this.style.left = Math.random() * 100 + 'vw';
@@ -73,19 +70,16 @@ document.getElementById('noButton').addEventListener('click', function () {
 
     totalNoClicks++;
     localStorage.setItem("noClicks", totalNoClicks); // Save updated count
-    console.log('No Clicks Updated: ' + totalNoClicks); // Debugging line
 
     // Stage 1: 5 clicks = why.html
-    if (totalNoClicks === 4 && noClickStage === 0) {
+    if (totalNoClicks === 5 && noClickStage === 0) {
       localStorage.setItem("noStage", 1);
-      console.log('Redirecting to why.html'); // Debugging line
       window.location.href = "why.html";
     }
 
-    // Stage 2: 8 clicks = nooo.html
+    // Stage 2: 8 clicks = surprise.html
     if (totalNoClicks === 8 && noClickStage === 1) {
       localStorage.setItem("noStage", 2);
-      console.log('Redirecting to nooo.html'); // Debugging line
       window.location.href = "nooo.html";
     }
   });
@@ -93,9 +87,9 @@ document.getElementById('noButton').addEventListener('click', function () {
   document.getElementById('yesButton').addEventListener('click', function () {
     // Optional: reset clicks when saying Yes
     localStorage.clear();
-    console.log('LocalStorage Cleared'); // Debugging line
     window.location.href = "hug.html";
   });
+</script>
 
 <script>
   document.getElementById('noButton').addEventListener('click', function() {
