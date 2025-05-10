@@ -76,7 +76,7 @@ document.getElementById('noButton').addEventListener('click', function () {
     console.log('No Clicks Updated: ' + totalNoClicks); // Debugging line
 
     // Stage 1: 5 clicks = why.html
-    if (totalNoClicks === 5 && noClickStage === 0) {
+    if (totalNoClicks === 4 && noClickStage === 0) {
       localStorage.setItem("noStage", 1);
       console.log('Redirecting to why.html'); // Debugging line
       window.location.href = "why.html";
