@@ -1,4 +1,3 @@
-<!-- nooo.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,16 +22,6 @@
       border-radius: 12px;
     }
   </style>
-  <script>
-    // Redirect back to forthem.html after 4.2 seconds
-    setTimeout(function () {
-      window.location.href = "forthem.html";
-    }, 4200);
-    <!-- This stays the same except for NOT clearing storage -->
-  setTimeout(function () {
-    window.location.href = "forthem.html";
-  }, 4200);
-</script>
 </head>
 <body>
 
@@ -40,7 +29,16 @@
 
   <video autoplay playsinline>
     <source src="47fae040-b64a-4130-9728-cb5c2129cd7d.mp4" type="video/mp4">
+    Your browser does not support the video tag.
   </video>
+
+  <script>
+    // ✅ Just one redirect — no HTML comment around it
+    setTimeout(function () {
+      window.location.href = "forthem.html";
+    }, 4200);
+  </script>
 
 </body>
 </html>
+
