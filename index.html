@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <img src="me.png.jpg" height="170" width="167">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Page</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -47,17 +47,24 @@
       background-color: #81c784;
       color: white;
     }
+    img {
+      margin-bottom: 20px;
+      border-radius: 50%;
+    }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>Хонгороо!чи надтай цуг болзоонд явах уу?</h1>
+  <img src="me.png.jpg" height="170" width="167" alt="Image" />
+  <h1>Хонгороо! чи надтай цуг болзоонд явах уу?</h1>
   <div class="buttons">
-     <button id="yesButton">Yes</button>
+    <button id="yesButton">Yes</button>
     <button id="noButton">No</button>
-   <script>
-  // Load saved clicks from localStorage, or start from 0
+  </div>
+</div>
+
+<script>
   let totalNoClicks = parseInt(localStorage.getItem("noClicks")) || 0;
   let noClickStage = parseInt(localStorage.getItem("noStage")) || 0;
 
@@ -69,40 +76,26 @@
     this.style.transform = 'scale(1.2)';
 
     totalNoClicks++;
-    localStorage.setItem("noClicks", totalNoClicks); // Save updated count
+    localStorage.setItem("noClicks", totalNoClicks);
 
-    // Stage 1: 5 clicks = why.html
+    // Adjust path based on GitHub Pages URL
+    const base = window.location.pathname.replace("index.html", "").replace(/\/$/, "");
+
     if (totalNoClicks === 5 && noClickStage === 0) {
       localStorage.setItem("noStage", 1);
-      window.location.href = "why.html";
+      window.location.href = `${base}/why.html`;
     }
 
-    // Stage 2: 8 clicks = surprise.html
     if (totalNoClicks === 8 && noClickStage === 1) {
       localStorage.setItem("noStage", 2);
-      window.location.href = "nooo.html";
+      window.location.href = `${base}/nooo.html`;
     }
   });
 
   document.getElementById('yesButton').addEventListener('click', function () {
-    // Optional: reset clicks when saying Yes
     localStorage.clear();
-    window.location.href = "hug.html";
-  });
-</script>
-
-<script>
-  document.getElementById('noButton').addEventListener('click', function() {
-    this.style.position = 'absolute';
-    this.style.top = Math.random() * 100 + 'vh';
-    this.style.left = Math.random() * 100 + 'vw';
-    this.style.transition = 'all 1s ease';
-    this.style.transform = 'scale(1.5)';
-  });
-
-  document.getElementById('yesButton').addEventListener('click', function() {
-    // Redirect to second page
-    window.location.href = "hug.html";
+    const base = window.location.pathname.replace("index.html", "").replace(/\/$/, "");
+    window.location.href = `${base}/hug.html`;
   });
 </script>
 
