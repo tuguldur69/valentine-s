@@ -1,0 +1,54 @@
+<!-- hug.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Can I Hug You?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fce4ec;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    h1 {
+      font-size: 36px;
+      color: #ec407a;
+    }
+    .combinedImage {
+      width: 300px;
+      margin-top: 20px;
+      border-radius: 50%;
+    }
+    .message {
+      font-size: 22px;
+      color: #ec407a;
+      margin-top: 20px;
+    }
+  </style>
+  <!-- This stays the same except for NOT clearing storage -->
+<script>
+  setTimeout(function () {
+    window.location.href = "get.html";
+  }, 10000);
+</script>
+
+</head>
+
+<body>
+
+  <h1>can i hug you when i see you</h1>
+  <!-- Video autoplay on page load -->
+  <video autoplay 50%ofvolume playinline>
+    <source src="happy.vd.mp4" type="video/mp4"> 
+  </video>
+  <div class="message">please wait till the video end!</div>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Send Me a Message 💌</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffc1e3, #ffe6f0);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #fff0f5;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h1 {
+      color: #e91e63;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      border: 2px solid #e91e63;
+      border-radius: 12px;
+      padding: 10px;
+      font-size: 16px;
+      resize: none;
+    }
+
+    button {
+      background-color: #f06292;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ec407a;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>💖 can i hug you 💖</h1>
+    <form action="https://formsubmit.co/tugulduree1@gmail.com" method="POST">
+      <textarea name="message" placeholder="send me something like 'i love you'..." required></textarea><br>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="forthem.html"> <!-- Redirect after submission -->
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+</body>
+</html>
