@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Will You Go On a Date?</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -48,14 +48,13 @@
     }
     img {
       margin-bottom: 20px;
-      border-radius: 50%;
     }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <img src="me.png.jpg" height="170" width="167" alt="Image" />
+  <img src="me.png.jpg" height="170" width="167" alt="Cute Image">
   <h1>Хонгороо! чи надтай цуг болзоонд явах уу?</h1>
   <div class="buttons">
     <button id="yesButton">Yes</button>
@@ -63,15 +62,15 @@
   </div>
 </div>
 
-<!-- ✅ MOVE SCRIPTS OUTSIDE THE BUTTON DIV -->
 <script>
+  // Helper function for safe path redirects in GitHub Pages
+  function redirectTo(filename) {
+    const basePath = window.location.pathname.replace(/\/[^\/]*$/, '/');
+    window.location.href = window.location.origin + basePath + filename;
+  }
+
   let totalNoClicks = parseInt(localStorage.getItem("noClicks")) || 0;
   let noClickStage = parseInt(localStorage.getItem("noStage")) || 0;
-
-  const getPagePath = (file) => {
-    const path = window.location.pathname.replace(/\/[^\/]*$/, "/");
-    return window.location.origin + path + file;
-  };
 
   document.getElementById('noButton').addEventListener('click', function () {
     this.style.position = 'absolute';
@@ -83,22 +82,25 @@
     totalNoClicks++;
     localStorage.setItem("noClicks", totalNoClicks);
 
+    // Redirect on 5th click
     if (totalNoClicks === 5 && noClickStage === 0) {
       localStorage.setItem("noStage", 1);
-      window.location.href = getPagePath("why.html");
+      redirectTo("why.html");
     }
 
+    // Redirect on 8th click
     if (totalNoClicks === 8 && noClickStage === 1) {
       localStorage.setItem("noStage", 2);
-      window.location.href = getPagePath("nooo.html");
+      redirectTo("nooo.html");
     }
   });
 
   document.getElementById('yesButton').addEventListener('click', function () {
     localStorage.clear();
-    window.location.href = getPagePath("hug.html");
+    redirectTo("hug.html");
   });
 </script>
 
 </body>
 </html>
+
