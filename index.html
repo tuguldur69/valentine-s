@@ -1,10 +1,9 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Page</title>
+  <title>Will You Go On a Date?</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -64,9 +63,15 @@
   </div>
 </div>
 
+<!-- ✅ MOVE SCRIPTS OUTSIDE THE BUTTON DIV -->
 <script>
   let totalNoClicks = parseInt(localStorage.getItem("noClicks")) || 0;
   let noClickStage = parseInt(localStorage.getItem("noStage")) || 0;
+
+  const getPagePath = (file) => {
+    const path = window.location.pathname.replace(/\/[^\/]*$/, "/");
+    return window.location.origin + path + file;
+  };
 
   document.getElementById('noButton').addEventListener('click', function () {
     this.style.position = 'absolute';
@@ -78,24 +83,20 @@
     totalNoClicks++;
     localStorage.setItem("noClicks", totalNoClicks);
 
-    // Adjust path based on GitHub Pages URL
-    const base = window.location.pathname.replace("index.html", "").replace(/\/$/, "");
-
     if (totalNoClicks === 5 && noClickStage === 0) {
       localStorage.setItem("noStage", 1);
-      window.location.href = `${base}/why.html`;
+      window.location.href = getPagePath("why.html");
     }
 
     if (totalNoClicks === 8 && noClickStage === 1) {
       localStorage.setItem("noStage", 2);
-      window.location.href = `${base}/nooo.html`;
+      window.location.href = getPagePath("nooo.html");
     }
   });
 
   document.getElementById('yesButton').addEventListener('click', function () {
     localStorage.clear();
-    const base = window.location.pathname.replace("index.html", "").replace(/\/$/, "");
-    window.location.href = `${base}/hug.html`;
+    window.location.href = getPagePath("hug.html");
   });
 </script>
 
